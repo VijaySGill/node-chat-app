@@ -21,10 +21,10 @@ io.on('connection', function(socket)
 
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user joined')); // broadcast emits a message to ALL other connected users APART from you
 
-  socket.on('createMessage', function(message)
+  socket.on('createMessage', function(message, callback)
   {
-    console.log('createMessage', message);
     io.emit('newMessage', generateMessage(message.from, message.text)); // actually sending a message to users
+    callback('This is from the server');
 
     // socket.broadcast.emit('newMessage', {
     //   from: message.from,

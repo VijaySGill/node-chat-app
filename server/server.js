@@ -16,6 +16,17 @@ io.on('connection', function(socket)
 {
   console.log('New user connected'); // fires on SERVER
 
+  socket.emit('newMessage', {
+    from: "Tina Turner",
+    text: "Hey. What's Love Got To Do With It?",
+    createdAt: 123
+  });
+
+  socket.on('createMessage', function(message)
+  {
+    console.log('createMessage', message);
+  });
+
   socket.on('disconnect', function()
   {
     console.log('User was disconnected');// fires on SERVER when user closes client

@@ -16,15 +16,14 @@ io.on('connection', function(socket)
 {
   console.log('New user connected'); // fires on SERVER
 
-  socket.emit('newMessage', {
-    from: "Tina Turner",
-    text: "Hey. What's Love Got To Do With It?",
-    createdAt: 123
-  });
-
   socket.on('createMessage', function(message)
   {
     console.log('createMessage', message);
+    io.emit('newMessage', {
+      from: message.from,
+      text: message.text,
+      createdAt: new Date().getTime()
+    })
   });
 
   socket.on('disconnect', function()

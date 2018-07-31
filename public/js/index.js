@@ -8,17 +8,27 @@ socket.on('connect', function() // what to do AFTER you've connected
 socket.on('newMessage', function(message)
 {
   console.log('newMessage', message);
+
+  var list = jQuery('<li></li>');
+  list.text(`${message.from}: ${message.text}`);
+
+  jQuery('#messages').append(list);
 });
 
-socket.on('disconnect', function()
+jQuery('#message-form').on('submit', function(event)
 {
-  console.log('Disconnected from server'); // fires in the CLIENT
-});
+  event.preventDefault();
 
-socket.emit('createMessage', {
-  from: 'Frank',
-  text: 'hi'
-}, function(data)
-{
-  console.log('Got it', data);
+  socket.emit('createMessage', {
+    from: 'User',
+    text: jQuery('[name=message]').val()
+  }, function()
+  {
+
+  });
+
+  socket.on('disconnect', function()
+  {
+    console.log('Disconnected from server'); // fires in the CLIENT
+  });
 });

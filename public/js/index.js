@@ -7,20 +7,22 @@ socket.on('connect', function() // what to do AFTER you've connected
 
 socket.on('newMessage', function(message)
 {
-  console.log('newMessage', message);
+  var formattedTime = moment(message.createdAt).format('h:mm a');
 
   var list = jQuery('<li></li>');
-  list.text(`${message.from}: ${message.text}`);
+  list.text(`${message.from} ${formattedTime}: ${message.text}`);
 
   jQuery('#messages').append(list);
 });
 
 socket.on('newLocationMessage', function(message)
 {
+  var formattedTime = moment(message.createdAt).format('h:mm a');
+
   var list = jQuery('<li></li>');
   var anchor = jQuery('<a target="_blank">My current location</a>'); // blank tells browser to open up in new tab
 
-  list.text(`${message.from}: `);
+  list.text(`${message.from} ${formattedTime}: `);
   anchor.attr('href', message.url);
   list.append(anchor);
   jQuery('#messages').append(list);

@@ -23,8 +23,8 @@ io.on('connection', function(socket)
 
   socket.on('createMessage', function(message, callback)
   {
-    io.emit('newMessage', generateMessage(message.from, message.text)); // actually sending a message to users
-    callback();
+      io.emit('newMessage', generateMessage(message.from, message.text)); // actually sending a message to users
+      callback();
   });
 
   socket.on('createLocationMessage', function(coords)

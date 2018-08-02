@@ -32,7 +32,7 @@ function removeParam(sourceURL)
 socket.on('connect', function() // what to do AFTER client has connected to server
 {
   var params = jQuery.deparam(window.location.search);
-  // params.room = params.room.toLowerCase();
+  params.room = params.room.toLowerCase();
 
   socket.emit('join', params, function(error)
   {

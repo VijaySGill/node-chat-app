@@ -18,9 +18,22 @@ function scrollToBottom(){
   }
 }
 
-socket.on('connect', function() // what to do AFTER you've connected
+socket.on('connect', function() // what to do AFTER client has connected to server
 {
-  console.log('Connected to server'); // fires in the CLIENT
+  var params = jQuery.deparam(window.location.search);
+
+  socket.emit('join', params, function(error)
+  {
+    if(error)
+    {
+      alert(error);
+      window.location.href = '/'; // redirects user back to root page
+    }
+
+    else {
+      console.log('No error');
+    }
+  });
 });
 
 socket.on('newMessage', function(message)
@@ -92,6 +105,18 @@ locationButton.on('click', function()
 
     alert('Unable to fetch location.');
   });
+});
+
+socket.on('updateUserList', function(users)
+{
+  var ol = jQuery('<ol></ol>');
+
+  users.forEach(function(user)
+  {
+    ol.append(jQuery('<li></li>').text(user));
+  });
+
+  jQuery('#users').html(ol);
 });
 
 socket.on('disconnect', function()

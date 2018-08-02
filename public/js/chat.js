@@ -42,8 +42,9 @@ socket.on('connect', function() // what to do AFTER client has connected to serv
       window.location.href = '/'; // redirects user back to root page
     }
 
-    else {
-      window.history.replaceState({}, document.title, "/" + "");
+    else
+    {
+      window.history.replaceState({}, document.title, "/" + ''); // removes parameters from URL
     }
   });
 });

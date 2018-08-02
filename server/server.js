@@ -18,8 +18,6 @@ app.use(express.static(publicPath));
 
 io.on('connection', function(socket) // let's you register event listeners to listen for connections
 {
-  console.log('New user connected'); // fires on SERVER
-
   socket.on('join', function(params, callback)
   {
     if(!isRealString(params.name) || !isRealString(params.room))

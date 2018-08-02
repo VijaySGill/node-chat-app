@@ -1,6 +1,7 @@
 var socket = io();
 
-function scrollToBottom(){
+function scrollToBottom()
+{
   // Selectors
   var messages = jQuery('#messages');
   var newMessage = messages.children('li:last-child');
@@ -18,9 +19,20 @@ function scrollToBottom(){
   }
 }
 
+function removeParam(sourceURL)
+{
+    var rtn = sourceURL.split("?")[0],
+        param,
+        params_arr = [],
+        queryString = (sourceURL.indexOf("?") !== -1) ? sourceURL.split("?")[1] : "";
+
+    return rtn;
+}
+
 socket.on('connect', function() // what to do AFTER client has connected to server
 {
   var params = jQuery.deparam(window.location.search);
+  // params.room = params.room.toLowerCase();
 
   socket.emit('join', params, function(error)
   {
@@ -31,7 +43,7 @@ socket.on('connect', function() // what to do AFTER client has connected to serv
     }
 
     else {
-      console.log('No error');
+      window.history.replaceState({}, document.title, "/" + "");
     }
   });
 });

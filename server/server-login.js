@@ -12,17 +12,8 @@ app.use(bodyParser.json());
 
 app.post('/users', function(request, response)
 {
-  var body = _.pick(request.body, ['name', 'email', 'username', 'password']);
-
-  var user = new User(body);
-
-  user.save().then(function(document)
-  {
-    response.send(document);
-  }).catch(function(error)
-  {
-    response.status(400).send(error);
-  })
+  var user = response.body;
+  console.log(user);
 });
 
 app.listen(port, function()

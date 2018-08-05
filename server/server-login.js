@@ -27,14 +27,7 @@ app.post('/users', function(request, response)
 
 app.get('/users', function(request, response)
 {
-  User.find().toArray().then(function(documents)
-  {
-    console.log('Users in the database:');
-    console.log(JSON.stringify(documents, undefined, 2));
-  }, function(error)
-  {
-    console.log('Unable to fetch users', error);
-  });
+  console.log("HI");
 });
 
 app.listen(port, function()

@@ -35,19 +35,6 @@ app.get('/users', function(request, response)
   {
     console.log('Unable to fetch users', error);
   });
-
-  // User.find({
-  //   _creator: request.user._id // find all todos created by currently logged-in user
-  // }).then(function(todos)
-  // {
-  //   response.send(
-  //   {
-  //     todos: todos // easier to send as an object if ever I need to tack something on
-  //   });
-  // }, function(error)
-  // {
-  //   response.status(400).send(error);
-  // });
 });
 
 app.listen(port, function()

@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Join | ChatApp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="./css/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/join.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> <!-- For text field icons -->
   </head>
+  <body class="join-room-page">
+      <div class="form">
+          <form class="join-existing-form" action=/chat.html>
+            <p class="title">Select a Chatroom</p>
+            <input type="text" placeholder="display name" name="name" autofocus="on" autocomplete="off"/>
+              <i id="name-existing-icon" class="fa fa-users" aria-hidden="true"></i>
+            <button>join</button>
+            <p class="choose-existing-room">
+              Wish to create your own? <a href="#">Create a Chatroom</a>
+            </p>
+          </form>
 
-  <body class="centered-form">
-    <div class="centered-form__form">
-      <form id="user-room-form" action="/chat.html">
-        <div class="form-field">
-          <h3>Join a Chat</h3>
-        </div>
-        <div class="form-field">
-          <label>Display name</label>
-          <input type="text" name="name" autofocus autocomplete="off"/>
-        </div>
-        <div class="form-field">
-          <label>Room name</label>
-          <input type="text" name="room" autocomplete="off"/>
-        </div>
-        <div class="form-field">
-          <button>Join</button>
-        </div>
-      </form>
-    </div>
+          <form class="create-own-room-form" action="/chat.html">
+            <p class="title">Create a Chatroom</p>
+            <input type="text" name="name" placeholder="display name" autofocus="on" autocomplete="off"/>
+							<i id="name-create-icon" class="fa fa-users" aria-hidden="true"></i>
+            <input type="text" name="room" placeholder="room name" autocomplete="off"/>
+              <i id="room-icon" class="fa fa-comments" aria-hidden="true"></i>
+            <textarea rows="4" type="text" placeholder="room description" autocomplete="off"></textarea>
+              <i id="description-icon" class="fa fa-info-circle" aria-hidden="true"></i>
+            <button>create</button>
+            <p class="join-existing-room">
+              Wish to join an existing room? <a href="#">Browse existing rooms</a>
+            </p>
+         </form>
+      </div>
+
+      <script src="./js/libs/jquery-3.3.1.min.js"></script>
+      <script src="./js/join.js"></script>
   </body>
 </html>

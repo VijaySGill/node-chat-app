@@ -19,16 +19,6 @@ function scrollToBottom()
   }
 }
 
-function removeParam(sourceURL)
-{
-    var rtn = sourceURL.split("?")[0],
-        param,
-        params_arr = [],
-        queryString = (sourceURL.indexOf("?") !== -1) ? sourceURL.split("?")[1] : "";
-
-    return rtn;
-}
-
 socket.on('connect', function() // what to do AFTER client has connected to server
 {
   var params = jQuery.deparam(window.location.search);

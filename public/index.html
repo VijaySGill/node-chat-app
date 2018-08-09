@@ -13,9 +13,12 @@
             <p class="title">Select a Chatroom</p>
             <input type="text" placeholder="display name" name="name" autofocus="on" autocomplete="off"/>
               <i id="name-existing-icon" class="fa fa-users" aria-hidden="true"></i>
+            <input type="text" class="room-name-field" name="room" placeholder="room name" autocomplete="off"/>
+              <i id="room-icon" class="fa fa-comments" aria-hidden="true"></i>
+            <select class="rooms-selector"></select>
             <button>join</button>
             <p class="choose-existing-room">
-              Wish to create your own? <a href="#">Create a Chatroom</a>
+              Don't see a room you like? <a href="#">Create a Chatroom</a>
             </p>
           </form>
 
@@ -25,16 +28,15 @@
 							<i id="name-create-icon" class="fa fa-users" aria-hidden="true"></i>
             <input type="text" name="room" placeholder="room name" autocomplete="off"/>
               <i id="room-icon" class="fa fa-comments" aria-hidden="true"></i>
-            <textarea rows="4" type="text" placeholder="room description" autocomplete="off"></textarea>
-              <i id="description-icon" class="fa fa-info-circle" aria-hidden="true"></i>
             <button>create</button>
             <p class="join-existing-room">
-              Wish to join an existing room? <a href="#">Browse existing rooms</a>
+              Wish to join an existing room?<br/><a href="#">Browse existing rooms</a>
             </p>
          </form>
       </div>
 
-      <script src="./js/libs/jquery-3.3.1.min.js"></script>
-      <script src="./js/join.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/js/libs/jquery-3.3.1.min.js"></script>
+      <script src="/js/join.js"></script>
   </body>
 </html>

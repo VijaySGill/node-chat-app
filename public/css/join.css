@@ -34,7 +34,6 @@ body, html {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   background: -webkit-linear-gradient(-135deg, #C85059, #EFCD75);
   background: -o-linear-gradient(-135deg, #C85059, #EFCD75);
   background: -moz-linear-gradient(-135deg, #C85059, #EFCD75);
@@ -156,4 +155,11 @@ body, html {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
+}
+
+.created-by {
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 10px;
+  font-style: italic;
+  color: #FFFFFF;
 }

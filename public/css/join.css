@@ -26,7 +26,6 @@ body, html {
   padding: 12% 0 0;
   margin: auto;
   overflow:hidden;  /* hides hori and vert screen scrollbars */
-  min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -51,6 +50,12 @@ body, html {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   border-radius: 30px;
+}
+
+.form img {
+  margin-top: -30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .form input,
@@ -143,12 +148,12 @@ body, html {
 
 .join-existing-form #name-existing-icon,
 .create-own-room-form #name-create-icon {
-  margin-bottom: -120px;
+  margin-bottom: -190.5px;
 }
 
 .create-own-room-form #room-icon,
 .join-existing-form #room-icon {
-  margin-bottom: -200px;
+  margin-bottom: -270px;
 }
 
 .room-list {

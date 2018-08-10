@@ -1,8 +1,32 @@
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url('../fonts/montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   font-size: .95rem;
 }
@@ -11,30 +35,23 @@ ul, li {
   list-style-position: inside;
 }
 
-h3 {
-  font-weight: 600;
-  text-align: center;
-  font-size: 1.5rem;
-}
-
-h3::selection {
-background: transparent;
-}
-
-button {
+.chat__footer button {
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+  height: 50px;
+  border-radius: 25px;
   border: none;
-  background: #265f82;
-  color: white;
-  cursor: pointer;
-  padding: 10px;
-  transition: background .3s ease;
+  background: #57B846;
+  padding: 0 25px;
 }
 
-button:hover {
-  border: none;
-  background: #1F4C69;
-  color: white;
-  padding: 10px;
+button:hover,
+button:active,
+button:focus {
+    background: #43A047;
 }
 
 button:disabled {
@@ -89,32 +106,64 @@ button:disabled {
 
 .chat__sidebar {
   overflow-y: scroll;
-  width: 260px;
+  width: 450px;
   height: 100vh;
-  background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ff3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49,84,129,1)), color-stop(100%, rgba(39,107,130,1))); /* safari4+,chrome */
-  background: -webkit-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* safari5.1+,chrome10+ */
-  background: -o-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* opera 11.10+ */
-  background: -ms-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ie10+ */
-  background: linear-gradient(325deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* w3c */
+  background: -webkit-linear-gradient(-135deg, #C85059, #EFCD75);
+  background: -o-linear-gradient(-135deg, #C85059, #EFCD75);
+  background: -moz-linear-gradient(-135deg, #C85059, #EFCD75);
+  background: linear-gradient(-135deg, #C85059, #EFCD75);
 }
 
-.chat__sidebar h3 {
-  color: #e6eaee;
+.chat__sidebar p {
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 40px;
+  color: #FFFFFF;
+  text-shadow: 2px 2px #000000;
   margin: 10px 20px;
-  text-align: left;
+  text-align: center;
+}
+
+.chat__sidebar button {
+  font-family: Montserrat-Bold;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  background: #57B846;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  width: 90%;
+  margin-left: 17px;
+}
+
+.chat__sidebar button:hover,
+.chat__sidebar button:active,
+.chat__sidebar button:focus {
+    background: #43A047;
 }
 
 .chat__sidebar ul {
   list-style-type: none;
+  padding: none;
 }
 
 .chat__sidebar li {
-  background: #e6eaee;
-  border: 1px solid #e1e1e1;
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  display: inline-block;
+  background-color: #ffffff;
   border-radius: 5px;
-  padding: 10px;
+  padding: 15px;
   margin: 10px;
+  word-wrap: break-word;
+  list-style-type: none;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .chat__main {
@@ -131,10 +180,9 @@ button:disabled {
 }
 
 .chat__footer {
-  background: #e6eaee;
+  background: #edeaea;
   display: flex;
   padding: 10px;
-  /*height: 60px;*/
   flex-shrink: 0;
 }
 
@@ -148,9 +196,16 @@ button:disabled {
 }
 
 .chat__footer input {
-  border: none;
-  padding: 10px;
-  flex-grow: 1;
+  font-family: "Poppins-Medium", sans-serif;
+  color: #726e6e;
+  outline: 0;
+  background-color: #FFFFFF;
+  border: 0;
+  width: 90%;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 25px;
+  font-size: 13px;
 }
 
 .chat__messages {
@@ -167,13 +222,22 @@ button:disabled {
   margin-bottom: 5px;
 }
 
-.message__title h4 {
-  font-weight: 600;
+.message__title p {
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 15.5px;
   margin-right: 10px;
 }
 
 .message__title span {
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 12px;
   color: #999;
+  margin-top: 4.5px;
+}
+
+.message__body p {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 13px;
 }
 
 @media (max-width: 600px) {

@@ -4,12 +4,16 @@
     <meta charset="utf-8">
     <title>Chatroom | ChatApp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="./css/styles.css"/>
+    <link rel="stylesheet" href="./css/chat.css"/>
   </head>
 
   <body class="chat">
     <div class = "chat__sidebar">
-      <h3>People</h3>
+        <p></p>
+        <form action="index.html">
+          <button>Leave</button>
+        </form>
+        <br/>
       <div id="users"></div>
     </div>
 
@@ -18,7 +22,7 @@
 
       <div class="chat__footer">
         <form id="message-form">
-            <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/> <!-- Autofocus instantly brings you right into the text box when you load page-->
+            <input name="message" type="text" placeholder="type your message here..." autofocus="on" autocomplete="off"/> <!-- Autofocus instantly brings you right into the text box when you load page-->
             <button>Send</button>
         </form>
 
@@ -29,7 +33,7 @@
     <script id="message-template" type="text/template">
       <li class="message">
           <div class="message__title">
-            <h4>{{from}}</h4>
+            <p>{{from}}</p>
             <span>{{createdAt}}</span>
           </div>
 

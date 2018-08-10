@@ -34,6 +34,9 @@ socket.on('connect', function() // what to do AFTER client has connected to serv
 
     else
     {
+      var params = jQuery.deparam(window.location.search);
+      jQuery('.chat__sidebar p').replaceWith(jQuery("<p />").text(params.room.toLowerCase()));
+
       window.history.replaceState({}, document.title, "/" + ''); // removes parameters from URL
     }
   });

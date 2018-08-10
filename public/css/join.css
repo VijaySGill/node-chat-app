@@ -23,7 +23,7 @@ body, html {
 
 .join-room-page {
   width: 400px;
-  padding: 12% 0 0;
+  padding: 10% 0 0;
   margin: auto;
   overflow:hidden;  /* hides hori and vert screen scrollbars */
   display: -webkit-box;
@@ -43,13 +43,14 @@ body, html {
   position: relative;
   z-index: 1;
   background-color: #FFFFFF;
-  margin: 0 auto 100px;
+  margin: 0 auto 0px;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 50px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   border-radius: 30px;
+  height: 435px;
 }
 
 .form img {
@@ -108,8 +109,10 @@ body, html {
   margin: 15px 0 0;
   color: #B3B3B3;
   font-size: 12px;
-  margin-top: 18px;
-  padding-bottom: 20px;
+}
+
+.form .choose-existing-room {
+  margin-top: 20px;
 }
 
 .form .choose-existing-room a,
@@ -167,4 +170,5 @@ body, html {
   font-size: 10px;
   font-style: italic;
   color: #FFFFFF;
+  margin-top: 10px;
 }

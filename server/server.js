@@ -46,8 +46,8 @@ app.post('/register', async function(request, response)
           const body = _.pick(request.body, ['username', 'password']);
           const user = new User(body);
           await user.save();
-          const token = await user.generateAuthToken();
-          response.cookie('x-auth', token).header('x-auth', token);
+          // const token = await user.generateAuthToken();
+          // response.cookie('x-auth', token).header('x-auth', token);
           response.render('home', {
             message: 'You have successfully logged in.'
           });
@@ -66,21 +66,24 @@ app.post('/register', async function(request, response)
     }
 });
 
-app.post('/login', async function(request, response)
+app.post('/login', async function(req, res)
 {
-  var body = _.pick(request.body, ['username', 'password']);
-
-User.findByCredentials(body.email, body.password).then(function(user)
-{
-  return user.generateAuthToken().then(function(token)
+  try
   {
-    response.header('x-auth', token).render('home', {message: 'hi'}); // send generated token to signed-in user
-  });
-}).catch(function(error)
-{
-  // fires if no user was returned
-  response.status(400).send(error);
-});
+    const body = _.pick(req.body, ['username', 'password']);
+    const user = await User.findByCredentials(body.username, body.password);
+    // const token = await user.generateAuthToken();
+
+    // res.cookie('x-auth', token).header('x-auth', token);
+    res.render('home', {
+      message: 'You have successfully logged in.'
+    });
+  }
+
+  catch(e)
+  {
+    res.status(400).render('login', {message: 'Incorrect login details. Please try again.'});
+  }
 });
 
 app.delete('/logout', authenticate, async function(req, res)

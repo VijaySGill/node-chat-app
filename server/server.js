@@ -47,13 +47,13 @@ User.findByCredentials(body.email, body.password).then(function(user)
 {
   return user.generateAuthToken().then(function(token)
   {
-    response.header('x-auth', token).send(user); // send generated token to signed-in user
+    // response.header('x-auth', token).send(user); // send generated token to signed-in user
     response.render('home', {message: 'hi'});
   });
 }).catch(function(error)
 {
   // fires if no user was returned
-  response.status(400).send(error);
+  response.status(400).render('register', {message: error});
 });
     }
 

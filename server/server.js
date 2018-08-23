@@ -75,7 +75,9 @@ app.post('/login', async function(req, res)
     const token = await user.generateAuthToken();
 
     res.cookie('x-auth', token).header('x-auth', token);
-    res.redirect('/home');
+    response.render('home', {
+      message: 'You have successfully logged in.'
+    });
   }
 
   catch(e)

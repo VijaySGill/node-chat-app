@@ -48,12 +48,13 @@ app.post('/register', async function(request, response)
           await user.save();
           const token = await user.generateAuthToken();
           response.cookie('x-auth', token).header('x-auth', token);
-          response.redirect('/home');
+          response.render('home', {
+            message: 'You have successfully logged out.'
+          });
       }
 
       catch(e)
       {
-          response.status(400);
           response.status(400).render('register', {message: 'Username already exists. Please try again.'});
       }
     }

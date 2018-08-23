@@ -28,11 +28,11 @@ const userSchema = new mongoose.Schema(
 
     tokens: [{
         access: {
-            type: 'string',
+            type: String,
             require: true
         },
         token: {
-            type: 'string',
+            type: String,
             require: true
         }
     }]
@@ -51,6 +51,8 @@ userSchema.methods.generateAuthToken = function()
     var user = this;
     var access = 'auth';
     var token = jwt.sign({_id: user._id.toHexString(), access}, process.env.JWT_SECRET).toString();
+
+    console.log(token);
 
     user.tokens = user.tokens.concat([{access, token}]);
 

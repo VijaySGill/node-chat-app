@@ -43,11 +43,11 @@ app.post('/register', async function(request, response)
     {
       try
       {
-          const body = _.pick(request.body, ['username', 'password']);
-          const user = new User(body);
+          var body = _.pick(request.body, ['username', 'password']);
+          var user = new User(body);
           await user.save();
-          // const token = await user.generateAuthToken();
-          // response.cookie('x-auth', token).header('x-auth', token);
+          var token = await user.generateAuthToken();
+          response.cookie('x-auth', token).header('x-auth', token);
           response.render('home', {
             message: 'You have successfully logged in.'
           });
@@ -70,8 +70,8 @@ app.post('/login', async function(req, res)
 {
   try
   {
-    const body = _.pick(req.body, ['username', 'password']);
-    const user = await User.findByCredentials(body.username, body.password);
+    var body = _.pick(req.body, ['username', 'password']);
+    var user = await User.findByCredentials(body.username, body.password);
     // const token = await user.generateAuthToken();
 
     // res.cookie('x-auth', token).header('x-auth', token);

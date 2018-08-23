@@ -46,7 +46,7 @@ app.post('/register', async function(request, response)
           var body = _.pick(request.body, ['username', 'password']);
           var user = new User(body);
           await user.save();
-          // const token = await user.generateAuthToken();
+          const token = await user.generateAuthToken();
           // response.cookie('x-auth', token).header('x-auth', token);
           response.render('home', {
             message: 'You have successfully logged in.'

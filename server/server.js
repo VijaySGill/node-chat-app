@@ -43,6 +43,7 @@ app.post('/register', async function(request, response)
     {
       try
       {
+          console.log("sTARTING");
           const body = _.pick(request.body, ['username', 'password']);
           const user = new User(body);
           await user.save();
@@ -58,13 +59,13 @@ app.post('/register', async function(request, response)
       catch(e)
       {
           console.log(e);
-          response.status(400).render('register', {message: 'Username already exists. Please try again.'});
+          // response.status(400).render('register', {message: 'Username already exists. Please try again.'});
       }
     }
 
     else
     {
-      response.status(400).render('register', {message: 'Passwords do not match. Please try again.'});
+      // response.status(400).render('register', {message: 'Passwords do not match. Please try again.'});
     }
 });
 
@@ -77,15 +78,15 @@ app.post('/login', async function(req, res)
     const token = await user.generateAuthToken();
 
     res.cookie('x-auth', token).header('x-auth', token);
-    response.render('home', {
-      message: 'You have successfully logged in.'
-    });
+    // response.render('home', {
+    //   message: 'You have successfully logged in.'
+    // });
   }
 
   catch(e)
   {
     console.log(e);
-    res.status(400).render('login', {message: 'Incorrect login details. Please try again.'});
+    // res.status(400).render('login', {message: 'Incorrect login details. Please try again.'});
   }
 });
 

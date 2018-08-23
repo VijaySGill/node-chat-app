@@ -1,4 +1,4 @@
-require('./config/config');
+require('./config/config.js');
 
 const path = require('path');
 const http = require('http');
@@ -43,14 +43,11 @@ app.post('/register', async function(request, response)
     {
       try
       {
-          console.log("sTARTING");
           const body = _.pick(request.body, ['username', 'password']);
           const user = new User(body);
           await user.save();
           const token = await user.generateAuthToken();
-          console.log("generated token");
           response.cookie('x-auth', token).header('x-auth', token);
-          console.log("set headers");
           response.render('home', {
             message: 'You have successfully logged in.'
           });
@@ -78,15 +75,14 @@ app.post('/login', async function(req, res)
     const token = await user.generateAuthToken();
 
     res.cookie('x-auth', token).header('x-auth', token);
-    response.render('home', {
+    res.render('home', {
       message: 'You have successfully logged in.'
     });
   }
 
   catch(e)
   {
-    console.log(e);
-    res.status(400).render('login', {message: e});
+    res.status(400).render('login', {message: 'Incorrect login details. Please try again.'});
   }
 });
 

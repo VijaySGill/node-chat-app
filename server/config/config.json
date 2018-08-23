@@ -2,12 +2,12 @@
     "test": {
         "PORT": 3000,
         "MONGODB_URI": "mongodb://localhost:27017/ChatAppTest",
-        "JWT_SECRET": "fhzorfhou38472sdjfhsdjfh"
+        "JWT_SECRET": "lskjdhgtew6789ioksjhgdfjj"
     },
     "development": {
         "PORT": 3000,
         "MONGODB_URI": "mongodb://localhost:27017/ChatApp",
-        "JWT_SECRET": "392832uzoerou23782349zhfiz"
+        "JWT_SECRET": "ljhgfdsaq234567890ijhgfd"
     }
 
 }

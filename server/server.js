@@ -41,23 +41,20 @@ app.post('/register', async function(request, response)
 {
     if(request.body.password === request.body.confirmPassword)
     {
-      try
-      {
-          var body = _.pick(request.body, ['username', 'password']);
-          var user = new User(body);
-          await user.save();
-          var token = await user.generateAuthToken();
-          response.header('x-auth', token);
-          response.render('home', {
-            message: 'You have successfully logged in.'
-          });
-      }
+      var body = _.pick(request.body, ['email', 'password']);
 
-      catch(e)
-      {
-          console.log(e);
-          response.status(400).render('register', {message: e});
-      }
+User.findByCredentials(body.email, body.password).then(function(user)
+{
+  return user.generateAuthToken().then(function(token)
+  {
+    response.header('x-auth', token).send(user); // send generated token to signed-in user
+    response.render('home' {message: 'hi'});
+  });
+}).catch(function(error)
+{
+  // fires if no user was returned
+  response.status(400).send(error);
+});
     }
 
     else

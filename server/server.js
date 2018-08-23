@@ -66,24 +66,21 @@ app.post('/register', async function(request, response)
     }
 });
 
-app.post('/login', async function(req, res)
+app.post('/login', async function(request, response)
 {
-  try
-  {
-    const body = _.pick(req.body, ['username', 'password']);
-    const user = await User.findByCredentials(body.username, body.password);
-    // const token = await user.generateAuthToken();
+  var body = _.pick(request.body, ['username', 'password']);
 
-    // res.cookie('x-auth', token).header('x-auth', token);
-    res.render('home', {
-      message: 'You have successfully logged in.'
-    });
-  }
-
-  catch(e)
+User.findByCredentials(body.email, body.password).then(function(user)
+{
+  return user.generateAuthToken().then(function(token)
   {
-    res.status(400).render('login', {message: 'Incorrect login details. Please try again.'});
-  }
+    response.header('x-auth', token).send(user).render('home', {message: ''}); // send generated token to signed-in user
+  });
+}).catch(function(error)
+{
+  // fires if no user was returned
+  response.status(400).send(error);
+});
 });
 
 app.delete('/logout', authenticate, async function(req, res)

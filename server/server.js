@@ -74,7 +74,7 @@ User.findByCredentials(body.email, body.password).then(function(user)
 {
   return user.generateAuthToken().then(function(token)
   {
-    response.header('x-auth', token).send(user).render('home', {message: ''}); // send generated token to signed-in user
+    response.header('x-auth', token).render('home', {message: 'hi'}); // send generated token to signed-in user
   });
 }).catch(function(error)
 {

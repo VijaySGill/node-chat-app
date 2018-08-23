@@ -49,12 +49,13 @@ app.post('/register', async function(request, response)
           const token = await user.generateAuthToken();
           response.cookie('x-auth', token).header('x-auth', token);
           response.render('home', {
-            message: 'You have successfully logged out.'
+            message: 'You have successfully logged in.'
           });
       }
 
       catch(e)
       {
+          console.log(e);
           response.status(400).render('register', {message: 'Username already exists. Please try again.'});
       }
     }
@@ -79,6 +80,7 @@ app.post('/login', async function(req, res)
 
   catch(e)
   {
+    console.log(e);
     res.status(400).render('login', {message: 'Incorrect login details. Please try again.'});
   }
 });

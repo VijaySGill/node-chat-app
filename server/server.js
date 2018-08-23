@@ -47,7 +47,9 @@ app.post('/register', async function(request, response)
           const user = new User(body);
           await user.save();
           const token = await user.generateAuthToken();
+          console.log("generated token");
           response.cookie('x-auth', token).header('x-auth', token);
+          console.log("set headers");
           response.render('home', {
             message: 'You have successfully logged in.'
           });

@@ -1,0 +1,263 @@
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
+.profile-page {
+  height: 94vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.profile-wrap {
+  width: 700px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-form {
+  width: 100%;
+}
+
+.profile-header {
+  padding-top: 20px;
+  font-family: 'Poppins-Bold';
+  font-size: 40px;
+  padding: none;
+  text-align: center;
+}
+
+.profile-header p {
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+ul {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#profile-options {
+  width: 180px;
+  height: 100px;
+  font-family: 'Montserrat-Bold';
+  font-size: 15px;
+  float: left;
+  margin-top: 25px;
+  text-align: center;
+}
+
+#profile-options a {
+  text-decoration: none;
+  color: #000000;
+}
+
+#profile-options li {
+  text-align: left;
+}
+
+#profile-info {
+  padding-left: 111px;
+}
+
+li {
+  margin: 10px 0;
+  padding-bottom: 5px;
+}
+
+label {
+  padding-right: 10px;
+  font-family: 'Poppins-Bold';
+  font-size: 15px;
+}
+
+.input {
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666666;
+
+  background: #e6e6e6;
+  border: none;
+}
+
+input {
+  width: 180px;
+  border-radius: 15px;
+  padding-left: 13px;
+  height: 30px;
+}
+
+textarea {
+  margin-top: 5px;
+  padding-top: 10px;
+  width: 320px;
+  height: 100px;
+  resize: none;
+  border-radius: 15px;
+  padding-left: 15px;
+}
+
+.update-profile-button,
+.cancel-profile-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.update-profile-button {
+    width: 410px;
+    float: right;
+}
+
+.cancel-profile-button {
+  float: left;
+  width: 290px;
+}
+
+.update-button,
+.cancel-button,
+.update-password-button,
+.cancel-password-button {
+  font-family: 'Montserrat-Bold';
+  font-size: 15px;
+  line-height: 1.5;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  padding: 0 25px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 84%;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.update-button,
+.update-password-button,
+.cancel-password-button {
+  background: #57b846;
+}
+
+
+.cancel-button,
+.cancel-password-button {
+  background: #8c8c8c;
+}
+
+.update-button:hover,
+.cancel-button:hover,
+.update-password-button:hover,
+.cancel-password-button:hover {
+  background: #333333;
+}
+
+.error-message p,
+.error-m {
+  font-family: 'Poppins-Medium';
+  font-size: 13px;
+  margin: 0 auto;
+}
+
+.error-message p {
+  padding-top: 60px;
+  margin-left: 20px;
+}
+
+.error-m {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.change-password {
+  width: 100%;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.change-password-form {
+  padding-top: 30px;
+}
+
+.password-buttons {
+  margin-left: -30px;
+}
+
+.current-password {
+  padding-bottom: 20px;
+}
+
+.new-password {
+  margin-left: 25px;
+}
+
+.confirm-new-password {
+  padding-top: 20px;
+  margin-left: -40px;
+  /* padding-bottom: 40px; */
+}
+
+.update-password-button {
+  width: 240px;
+}
+
+.cancel-password-button {
+    width: 160px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<!DOCTYPE html>
+		<html>
+		  <head>
+		    <meta charset="UTF-8">
+		    <title>My Profile | Chatter</title>
+		    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		    <link rel="stylesheet" type="text/css" href="css/profile.css" />
+			</head>
+			<body>
+        <div class="profile-page">
+          <div class="profile-wrap">
+            <form class="profile-form">
+              <div class="profile-header">
+                <img src="images/profile.png" width="155" height="150" alt="Profile Photo"/>
+                <p><%= message %></p>
+              </div>
+
+							<div class="profile information">
+									<ul id="profile-options">
+										<li><a href="#">Change profile picture</a></li>
+										<li><a href="/profile-password" method="GET">Change password</a></li>
+
+										<div class="error-message">
+											<% if(error.includes("updated")) { %>
+												<p id="error" style="color:#57b846;"><%= error %></p>
+											<% } else { %>
+												<p id="error" style="color:#ce2f2f;"><%= error %></p>
+												<% } %>
+										</div>
+									</ul>
+
+									<ul id="profile-info">
+										<li><label>Username</label><input class="input" name="username" id="username-field" type="text" placeholder="Username" autocomplete="off"></li>
+										<li><label>Bio</label>
+										<br/>
+										<textarea class="input" id="bio-field" type="text" name="bio" placeholder="Tell us something about yourself..." autocomplete="off"></textarea></li>
+										<li><label>Tags</label>
+										</br>
+										</li>
+									</ul>
+							</div>
+
+							<div class="update-profile-button">
+								<button class="update-button" formaction="/update-profile?_method=PATCH" formmethod="POST">Update Profile</button>
+							</div>
+							<div class="cancel-profile-button">
+								<button class="cancel-button" formaction="/home" formmethod="GET">Cancel</button>
+							</div>
+            </form>
+          </div>
+        </div>
+
+			<script src="js/libs/jquery-3.3.1.min.js"></script>
+			<script src="js/profile.js"></script>
+      </body>
+</html>

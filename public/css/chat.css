@@ -102,10 +102,10 @@ button:disabled {
   overflow-y: scroll;
   width: 450px;
   height: 100vh;
-  background: -webkit-linear-gradient(-135deg, #C85059, #EFCD75);
-  background: -o-linear-gradient(-135deg, #C85059, #EFCD75);
-  background: -moz-linear-gradient(-135deg, #C85059, #EFCD75);
-  background: linear-gradient(-135deg, #C85059, #EFCD75);
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
 }
 
 .chat__sidebar p {

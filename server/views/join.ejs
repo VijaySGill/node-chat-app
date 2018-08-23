@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Join | Chatter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/join.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> <!-- For text field icons -->
+  </head>
+  <body class="join-room-page">
+      <div class="form">
+          <img src="images/chatter-logo.png" width="210" height="95" alt="Chatter">
+          <form class="join-existing-form" action=/chat.html>
+            <p class="title">Select a Chatroom</p>
+            <% if (message.length > 0) { %>
+                    <div class="alert alert-danger">
+                        <h5><%= message %></h5>
+                    </div>
+                <% } %>
+            <input type="text" placeholder="display name" name="name" autofocus="on" autocomplete="off"/>
+              <i id="name-existing-icon" class="fa fa-users" aria-hidden="true"></i>
+            <input type="text" class="room-name-field" name="room" placeholder="room name" autocomplete="off"/>
+              <i id="room-icon" class="fa fa-comments" aria-hidden="true"></i>
+            <select class="rooms-selector"></select>
+            <button>join</button>
+            <p class="choose-existing-room">
+              Don't see a room you like? <a href="#">Create a Chatroom</a>
+            </p>
+            <a href="/">Log Out</a>
+          </form>
+
+          <form class="create-own-room-form" action="/chat.html">
+            <p class="title">Create a Chatroom</p>
+            <input type="text" name="name" placeholder="display name" autofocus="on" autocomplete="off"/>
+							<i id="name-create-icon" class="fa fa-users" aria-hidden="true"></i>
+            <input type="text" name="room" placeholder="room name" autocomplete="off"/>
+              <i id="room-icon" class="fa fa-comments" aria-hidden="true"></i>
+            <button>create</button>
+            <p class="join-existing-room">
+              Wish to join an existing room?<br/><a href="#">Browse existing rooms</a>
+            </p>
+         </form>
+      </div>
+      <div class="created-by">
+        <p>Created by Vijay Gill</p>
+      </div>
+
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/js/libs/jquery-3.3.1.min.js"></script>
+      <script src="/js/join.js"></script>
+  </body>
+</html>

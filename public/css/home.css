@@ -1,0 +1,312 @@
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+body {
+  overflow: hidden;
+}
+
+.homepage-container {
+  margin-top: 70px;
+  height: 100vh;
+}
+
+.create-room {
+  width: 300px;
+  height: 200px;
+  margin-left: 100px;
+  margin-top: 260px;
+  background: #FFFFFF;
+  border-radius: 15px;
+  text-align: center;
+  padding-top: 30px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.user {
+  display: none;
+}
+
+label {
+  font-family: 'Montserrat-Bold';
+}
+
+#create-room-label {
+  font-size: 24px;
+}
+
+#finish-room-label {
+  font-size: 35px;
+}
+
+.room-name,
+#room-name,
+textarea {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+  width: 80%;
+  background: #e6e6e6;
+  height: 45px;
+  border-radius: 25px;
+  border: none;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+textarea {
+  padding-top: 10px;
+  resize: none;
+  height: 150px;
+}
+
+button {
+  font-family: 'Montserrat-Bold';
+  font-size: 15px;
+  line-height: 1.5;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  padding: 0 25px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background: #57b846;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+button:hover,
+.cancel-button {
+  background: #333333;
+}
+
+button:disabled {
+  background: #C8C8C8;
+}
+
+.create-room-button {
+  margin-top: 12.5px;
+}
+
+.cancel-button {
+  margin-top: 22px;
+}
+
+.finish-create-room {
+  display: none;
+  width: 50%;
+  text-align: center;
+  background: #FFFFFF;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 15px;
+}
+
+.cancel-button {
+  background: #8c8c8c;
+}
+
+.table100 {
+  background-color: #FFFFFF;
+  width: 43%;
+  margin-top: -360px;
+  position: absolute;
+  left: 50%;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  font-weight: unset;
+}
+
+.column1 {
+  text-align: center;
+}
+
+.table100-head th {
+  padding-top: 18px;
+  padding-bottom: 8px;
+  padding-left: -100px;
+}
+
+.table100-body td {
+  height: 100px;
+  padding-top: 18px;
+  padding-bottom: 16px;
+}
+
+.table100 {
+  position: relative;
+  padding-top: 60px;
+}
+
+.table100-head {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.table100-body {
+  height: 400px;
+  overflow: auto;
+  margin-top: 28px;
+}
+
+.table100-head {
+  border-bottom: 1px solid #b7b5b5;
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.table100.ver2 th {
+  font-family: 'Montserrat-Bold';
+  font-size: 21px;
+  color: #000000;
+  line-height: 1.4;
+
+  background-color: transparent;
+}
+
+.table100.ver2 td {
+  font-family: 'Poppins-Medium';
+  font-size: 15.5px;
+  color: #808080;
+  line-height: 1.4;
+  padding-top: 30px;
+  padding-bottom: 27px;
+}
+
+td {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+th label {
+  font-size: 13px;
+}
+
+.table100.ver2 {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table100 a {
+  text-decoration: none;
+  color: #808080;
+}
+
+.table100 a:hover {
+  text-decoration: underline;
+  color: #57b846;
+}
+
+.logged-in-message {
+  width: 300px;
+  height: 40px;
+  background: #57b846;
+  font-family: 'Montserrat-Bold';
+  font-size: 15px;
+  color: #FFFFFF;
+  border-radius: 15px;
+  text-align: center;
+  position: fixed;
+  margin-left: 100px;
+  bottom: 2%;
+  left: 40%;
+  margin: 0 auto;
+  padding-top: 10.5px;
+}
+
+/* The customcheck */
+.customcheck {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.customcheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.customcheck:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked */
+.customcheck input:checked ~ .checkmark {
+    background-color: #02cf32;
+    border-radius: 5px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.customcheck input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.customcheck .checkmark:after {
+    left: 9px;
+    top: 5.5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

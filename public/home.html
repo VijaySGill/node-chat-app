@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<!DOCTYPE html>
+		<html>
+		  <head runat="server">
+		    <meta charset="UTF-8">
+		    <title>Home | Chatter</title>
+		    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		    <link rel="stylesheet" type="text/css" href="css/nav-bar.css"/>
+			  <link rel="stylesheet" type="text/css" href="css/home.css"/>
+			</head>
+			<body>
+				<div class="container">
+					<ul id="gn-menu" class="gn-menu-main">
+						<li class="gn-trigger">
+							<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+							<nav class="gn-menu-wrapper">
+								<div class="gn-scroller">
+									<ul class="gn-menu">
+										<li>
+											<form id="profile-form"action="/profile" method="GET">
+												<a onclick="document.getElementById('profile-form').submit();"><i class="fa fa-user-circle" aria-hidden="true"><label class="menu-options">Profile</label></i></a>
+											</form>
+										</li>
+										<li>
+											<form id="logout-form" name="logout" action="/logout?_method=DELETE" method="POST">
+												<a onclick="document.getElementById('logout-form').submit();"><i class="fa fa-power-off" aria-hidden="true"><label class="menu-options">Log out</label></i></a>
+											</form>
+										</li>
+									</ul>
+								</div>
+							</nav>
+						</li>
+					</ul>
+				</div><!-- /container -->
+
+
+				<div class="homepage-container">
+					<div class="create-room">
+						<form class="create-room-form" action="">
+							<label id="create-room-label">Create a room</label>
+							<input class="room-name" type="text" name="room" placeholder="Room name">
+							<button class="create-room-button">Create room</button>
+						</form>
+					</div>
+
+						<div class="finish-create-room">
+							<form class="finish-create-room-form">
+									<label id="finish-room-label">Create room</label>
+									<br/>
+									<input class="user" type="text" name="name">
+									<input id="room-name" type="text" name="room" placeholder="Room name" onKeyPress="valueKeyPress()" onKeyUp="valueKeyPress()">
+									<textarea type="text" name="description" placeholder="Enter a short description of this room..."></textarea>
+									<button class="cancel-button" formaction="home.html">Cancel</button>
+									<button>Create room</button>
+							</form>
+						</div>
+
+						<div class="table100 ver2 m-b-110">
+									<div class="table100-head">
+										<table>
+											<thead>
+												<tr class="row100 head">
+													<th class="cell100 column1">Chatroom</th>
+													<th class="cell100 column2">Created By</th>
+													<th class="cell100 column3">Users</th>
+													<th class="cell100 column4"></th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+									<div class="table100-body js-pscroll">
+										<table>
+											<tbody>
+												<tr class="row100 body">
+													<td class="cell100 column1">Tina Turner Fans</td>
+													<td class="cell100 column2">@VijayGill</td>
+													<td class="cell100 column3">31</td>
+													<td class="cell100 column4"><button id="#join-button">Join</button></td>
+												</tr>
+
+												<tr class="row100 body">
+													<td class="cell100 column1">Aretha, The Queen of Soul</td>
+													<td class="cell100 column2">@EVERYTHINGLOVE</td>
+													<td class="cell100 column3">118</td>
+													<td class="cell100 column4"><button id="#join-button">Join</button></td>
+												</tr>
+
+												<tr class="row100 body">
+													<td class="cell100 column1">BeyHive 4 Ever</td>
+													<td class="cell100 column2">@lemonyonce</td>
+													<td class="cell100 column3">14</td>
+													<td class="cell100 column4"><button id="#join-button">Join</button></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+						</div>
+				</div>
+
+
+				<script src="js/nav-bar/classie.js"></script>
+				<script src="js/nav-bar/gnmenu.js"></script>
+				<script src="js/nav-bar/modernizr.custom.js"></script>
+				<script src="js/libs/jquery-3.3.1.min.js"></script>
+				<script src="js/home.js"></script>
+				<script>
+					new gnMenu(document.getElementById('gn-menu'));
+
+					function valueKeyPress()
+			    {
+			        var room = document.getElementById("room-name");
+			        var text = room.value;
+
+			        var label = document.getElementById("finish-room-label");
+			        label.innerText = text;
+
+			    }
+
+				</script>
+		</body>
+</html>

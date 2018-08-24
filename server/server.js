@@ -1,4 +1,5 @@
 require('./config/config.js');
+require('./config/config.json');
 
 const path = require('path');
 const http = require('http');

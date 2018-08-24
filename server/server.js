@@ -7,7 +7,6 @@ const socketIO = require('socket.io');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const bcrypt = require('bcryptjs');
 
@@ -33,33 +32,30 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
-app.use(flash());
 app.use(express.static(publicPath));
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
-app.post('/register', async function(request, response)
+app.post('/register', function(request, response)
 {
     if(request.body.password === request.body.confirmPassword)
     {
-      try
-      {
           var body = _.pick(request.body, ['username', 'password']);
           var user = new User(body);
-          await user.save();
-          const token = await user.generateAuthToken();
-          response.cookie('x-auth', token).header('x-auth', token);
-          response.render('home', {
-            message: 'You have successfully logged in.'
+          user.save().then(function()
+          {
+            return user.generateAuthToken();
+          }).then(function(token)
+          {
+            response.cookie('x-auth', token).header('x-auth', token);
+            response.render('home', {
+              message: 'You have successfully logged in.'
+            });
+          }).catch(function(error)
+          {
+            response.status(400).render('register', {message: 'Username already exists. Please try again.'});
           });
-      }
-
-      catch(e)
-      {
-          console.log(e);
-          response.status(400).render('register', {message: e});
-      }
     }
 
     else
@@ -68,38 +64,34 @@ app.post('/register', async function(request, response)
     }
 });
 
-app.post('/login', async function(req, res)
+app.post('/login', function(request, response)
 {
-  try
-  {
-    var body = _.pick(req.body, ['username', 'password']);
-    var user = await User.findByCredentials(body.username, body.password);
-    const token = await user.generateAuthToken();
+    var body = _.pick(request.body, ['username', 'password']);
 
-    res.cookie('x-auth', token).header('x-auth', token);
-    res.render('home', {
-      message: 'You have successfully logged in.'
+    User.findByCredentials(body.username, body.password).then(function(user)
+    {
+      return user.generateAuthToken().then(function(token)
+      {
+        response.cookie('x-auth', token).header('x-auth', token);
+        response.render('home', {
+          message: 'You have successfully logged in.'
+        });
+      });
+    }).catch(function(error)
+    {
+      response.status(400).render('login', {message: 'Incorrect login details. Please try again.'});
     });
-  }
-
-  catch(e)
-  {
-    res.status(400).render('login', {message: 'Incorrect login details. Please try again.'});
-  }
 });
 
-app.delete('/logout', authenticate, async function(req, res)
+app.delete('/logout', authenticate, function(request, response)
 {
-    try
+    request.user.removeToken(request.token).then(function()
     {
-        await req.user.removeToken(req.token);
-        res.status(200).clearCookie('x-auth', req.token).render('login', {message: 'You have successfully logged out.'});
-    }
-
-    catch(e)
+      response.status(200).clearCookie('x-auth', request.token).render('login', {message: 'You have successfully logged out.'});
+    }, function()
     {
-        res.status(400).render('login', {message: 'Please try again.'});
-    }
+      response.status(400).render('login', {message: 'Please try again.'});
+    });
 });
 
 app.get('/', async function(req, res)

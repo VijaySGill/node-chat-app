@@ -103,58 +103,53 @@ app.get('/', function(request, response)
       response.render('home', {message: ''});
     }, function()
     {
+      response.status(400).render('login', {message: ''});
+    });
+});
+
+app.get('/home', function(request, response)
+{
+    var token = request.cookies['x-auth'];
+
+    User.findByToken(token).then(function(user)
+    {
+      response.render('home', {message: 'You have successfully logged in'});
+    }, function()
+    {
       response.status(400).render('login', {message: 'Login required.'});
     });
 });
 
-app.get('/home', async function(req, res)
+app.get('/profile', function(request, response)
 {
-  try
-  {
-      let token = req.cookies['x-auth'];
-      const user = await User.findByToken(token);
-      res.render('home', {message: 'You have successfully logged in', name: user.name});
-  }
+    var token = request.cookies['x-auth'];
 
-  catch(e)
-  {
-      res.status(400).render('login', {message: 'Login required.'})
-  }
-});
-
-app.get('/profile', async function(req, res)
-{
-    try
+    User.findByToken(token).then(function(user)
     {
-        let token = req.cookies['x-auth'];
-        const user = await User.findByToken(token);
-        res.render('profile', {
-          message: `@${user.username}`,
-          bio: user.bio,
-          error: ''});
-    }
-
-    catch(e)
-    {
-        res.status(400).render('login', {message: 'Login required.'})
-    }
-});
-
-app.get('/profile-password', async function(req, res)
-{
-  try
-  {
-      let token = req.cookies['x-auth'];
-      const user = await User.findByToken(token);
-      res.render('profile-password', {
-        message: ''
+      response.render('profile', {
+        message: `@${user.username}`,
+        bio: user.bio,
+        error: ''
       });
-  }
+    }, function()
+    {
+      response.status(400).render('login', {message: 'Login required.'});
+    });
+});
 
-  catch(e)
-  {
-      res.status(400).render('login', {message: 'Login required.'})
-  }
+app.get('/profile-password', function(request, response)
+{
+    var token = request.cookies['x-auth'];
+
+    User.findByToken(token).then(function(user)
+    {
+      response.render('profile-password', {
+          message: ''
+        });
+    }, function()
+    {
+      response.status(400).render('login', {message: 'Login required.'});
+    });
 });
 
 app.get('/me/name', authenticate, function(request, response)

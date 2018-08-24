@@ -74,9 +74,9 @@ app.post('/login', async function(req, res)
   {
     var body = _.pick(req.body, ['username', 'password']);
     var user = await User.findByCredentials(body.username, body.password);
-    // const token = await user.generateAuthToken();
+    const token = await user.generateAuthToken();
 
-    // res.cookie('x-auth', token).header('x-auth', token);
+    res.cookie('x-auth', token).header('x-auth', token);
     res.render('home', {
       message: 'You have successfully logged in.'
     });

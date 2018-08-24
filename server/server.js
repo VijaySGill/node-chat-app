@@ -286,7 +286,7 @@ app.patch('/update-password', authenticate, function(request, response)
                     User.findOneAndUpdate({_id: request.user._id}, {$set: body}, {new: true}).then(async function(user)
                     {
                       response.render('profile', {
-                        message: `${request.body.username}`,
+                        message: `${request.user.username}`,
                         bio: request.user.bio,
                         error: 'Successfully updated password.',
                       });

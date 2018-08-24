@@ -94,19 +94,17 @@ app.delete('/logout', authenticate, function(request, response)
     });
 });
 
-app.get('/', async function(req, res)
+app.get('/', function(request, response)
 {
-  try
-  {
-      let token = req.cookies['x-auth'];
-      const user = await User.findByToken(token);
-      res.render('home', {message: '', name: user.name});
-  }
+    var token = request.cookies['x-auth'];
 
-  catch(e)
-  {
-      res.status(400).render('login', {message: ''})
-  }
+    User.findByToken(token).then(function(user)
+    {
+      response.render('home', {message: ''});
+    }, function()
+    {
+      response.status(400).render('login', {message: 'Login required.'});
+    });
 });
 
 app.get('/home', async function(req, res)

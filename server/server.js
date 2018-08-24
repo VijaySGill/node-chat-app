@@ -6,7 +6,8 @@ const express = require('express');
 const socketIO = require('socket.io');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const bcrypt = require('bcryptjs');
 
@@ -32,6 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
+app.use(flash());
 app.use(express.static(publicPath));
 
 app.set('view engine', 'ejs');

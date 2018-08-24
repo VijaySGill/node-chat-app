@@ -58,7 +58,7 @@ app.post('/register', async function(request, response)
       catch(e)
       {
           console.log(e);
-          response.status(400).render('register', {message: token});
+          response.status(400).render('register', {message: e});
       }
     }
 

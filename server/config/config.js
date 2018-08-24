@@ -10,3 +10,8 @@ if(env === 'development' || env === 'test')
     process.env[key] = envConfig[key]
   });
 }
+
+if (process.env.NODE_ENV === 'production' && !process.env.JWT_SECRET)
+{
+  throw new Error('JWT_SECRET is required in production!');
+}
